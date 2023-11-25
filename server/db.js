@@ -1,15 +1,23 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-module.exports = () => {
-  const connectionParams = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  };
+mongoose.set("strictQuery", true);
+
+async function main() {
+  const dbUser = process.env.DBUSER;
+  const dbPass = encodeURIComponent(process.env.DBPASS);
+  const dbHost = process.env.DBHOST; // Ensure this includes the database name
+
+  const connectionString = `mongodb+srv://${dbUser}:${dbPass}@${dbHost}?retryWrites=true&w=majority`;
+
   try {
-    mongoose.connect(process.env.DB, connectionParams);
-    console.log("Connected to database sucessfully");
-  } catch (error) {
-    console.log(error);
-    console.log("could not connect to database!");
+    await mongoose.connect(connectionString);
+    console.log("Connected to database successfully!");
+  } catch (err) {
+    console.error("Database connection failed:", err);
   }
-};
+}
+
+main();
+
+module.exports = main;

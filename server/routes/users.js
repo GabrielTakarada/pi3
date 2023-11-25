@@ -4,21 +4,33 @@ const bcrypt = require("bcrypt");
 
 router.post("/", async (req, res) => {
   try {
+    // Validate user input
     const { error } = validate(req.body);
-    if (error)
-      return res.status(400).send({ message: error.details[0].message });
+    if (error) return res.status(400).send({ message: error.details[0].message });
 
-    const user = await User.findOne({ email: req.body.email });
-    if (user)
-      return res.status(409).send({ message: "Email do usuário já existe!" });
+    // Check if user already exists
+    let user = await User.findOne({ email: req.body.email });
+    if (user) return res.status(409).send({ message: "Email already in use!" });
 
-    const salt = await bcrypt.genSalt(Number(process.env.SALT));
-    const hashPassword = await bcrypt.hash(req.body.password, salt);
+    // Hash the password
+    const saltRounds = Number(process.env.SALT) || 10; // Use 10 as a default value if SALT is not set
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
 
-    await new User({ ...req.body, password: bcrypt.hashPassword }).save();
-    res.status(201).send({ message: "Usuário criado com sucesso" });
+    // Create a new user
+    user = new User({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: hashedPassword
+    });
+
+    await user.save();
+
+    // Send a response
+    res.status(201).send({ message: "User created successfully" });
   } catch (error) {
-    res.status(500).send({ message: "Erro de servidor interno" });
+    console.error("Error occurred in POST /users:", error); // Log the full error
+    res.status(500).send({ message: "Internal Server Error" });
   }
 });
 
