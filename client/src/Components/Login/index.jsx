@@ -17,9 +17,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/auth";
-      const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data);
+      const url = "http://localhost:4000/api/auth";
+      const { data: response } = await axios.post(url, data);
+      // Assuming the token is in response.data.token based on your backend
+      localStorage.setItem("token", response.token);
       window.location = "/";
     } catch (error) {
       if (
@@ -27,6 +28,7 @@ const Login = () => {
         error.response.status >= 400 &&
         error.response.status <= 500
       ) {
+        // Assuming the error message is in error.response.data.message
         setError(error.response.data.message);
       }
     }
@@ -60,16 +62,15 @@ const Login = () => {
             <button type="submit" className={styles.green_btn}>
               Sign In
             </button>
-            <div className={styles.right}>
-              <h1>Criar conta</h1>
-              <Link to="/signup">
-                <button type="button" className={styles.white_btn}>
-                  Sign Up
-                </button>
-              </Link>
-              <br></br>
-            </div>
           </form>
+        </div>
+        <div className={styles.right}>
+          <h1>Create Account</h1>
+          <Link to="/signup">
+            <button type="button" className={styles.white_btn}>
+              Sign Up
+            </button>
+          </Link>
         </div>
       </div>
     </div>
