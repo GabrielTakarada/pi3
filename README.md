@@ -21,22 +21,26 @@ This application is a product exchange platform where users can register, log in
    $ cd server
    $ npm install
    $ npm install jsonwebtoken
+   ```
 
 3. **Install dependencies in the client folder:**
    ```bash
    $ cd server
    $ npm install
+   ```
 
 4. **Start the server:**
    ```bash
    $ cd server
    $ npm start
-
+   ```
+   
 5. **Start the client:**
    ```bash
    $ cd server
    $ npm start
-
+   ```
+   
 ### Usage
 #### Registration and Login:
 New users can register through the registration page.
