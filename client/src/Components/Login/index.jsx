@@ -62,15 +62,15 @@ const Login = () => {
             <button type="submit" className={styles.green_btn}>
               Sign In
             </button>
+            <div className={styles.right}>
+              <h1>Create Account</h1>
+              <Link to="/signup">
+                <button type="button" className={styles.white_btn}>
+                  Sign Up
+                </button>
+              </Link>
+            </div>
           </form>
-        </div>
-        <div className={styles.right}>
-          <h1>Create Account</h1>
-          <Link to="/signup">
-            <button type="button" className={styles.white_btn}>
-              Sign Up
-            </button>
-          </Link>
         </div>
       </div>
     </div>
