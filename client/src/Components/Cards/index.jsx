@@ -4,27 +4,64 @@ import { useEffect, useRef, useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
-import { Link } from "react-router-dom";
-import fone from "../../assets/fone.png";
-import {
-  cardStyle,
-  imageStyle,
-  cardMediaStyle,
-  buttonContainerStyle,
-} from "./style";
+import { cardStyle, imageStyle } from "./style";
 import { Divider } from "@mui/material";
 
 export default function MediaCard() {
   const [isFavorite, setIsFavorite] = useState(false);
-  const [name, setName] = useState();
+  const [image, setImage] = useState(null);
+  const [preview, setPreview] = useState(null);
+  const [isImageUploaded, setIsImageUploaded] = useState(false);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+
+    // Atualizar a prévia da imagem
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const toggleFavorite = () => {
     setIsFavorite(!isFavorite);
+  };
+
+  const handleUpload = async () => {
+    if (!image) {
+      alert("Selecione uma imagem para enviar.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", image);
+
+    try {
+      const response = await fetch("http://localhost:3001/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      alert(
+        `Imagem enviada com sucesso! Caminho da imagem no servidor: ${data.imagePath}`
+      );
+
+      setIsImageUploaded(true);
+    } catch (error) {
+      console.error("Erro ao enviar a imagem:", error);
+    }
+  };
+
+  const handleImageChangeAgain = () => {
+    setImage(null);
+    setPreview(null);
+    setIsImageUploaded(false);
   };
 
   const favoriteIconStyle = {
@@ -73,28 +110,42 @@ export default function MediaCard() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img src={fone} alt="Fone" style={imageStyle}></img>
+      <img src={preview} alt="Preview" style={imageStyle} />
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+        style={imageStyle}
+      />
+      <input type="file" accept="image/*" onChange={handleImageChange} />
+      <button onClick={handleUpload}>Enviar Imagem</button>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Estes são os fones de ouvido ultrablaster de ultima geração da marca
-          JBL em perfeito estado
-        </Typography>
+        <Typography gutterBottom variant="h5" component="div"></Typography>
+        <Typography variant="body2" color="text.secondary"></Typography>
       </CardContent>
       <Divider></Divider>
       <CardActions>
         <IconButton aria-label="add to favorites" onClick={toggleFavorite}>
           <FavoriteIcon style={favoriteIconStyle} />
         </IconButton>
-        <IconButton style={buttonContainerStyle}>
-          <Link to="/profile">
-            <Button size="small">Detalhes</Button>
-          </Link>
-        </IconButton>
       </CardActions>
-      <CardMedia sx={cardMediaStyle} title="fone de ouvido" />
+
+      {isImageUploaded && (
+        <>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {/* Nome ou outros detalhes do card */}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {/* Descrição do card */}
+            </Typography>
+          </CardContent>
+          <Divider></Divider>
+          <CardActions>
+            <button onClick={handleImageChangeAgain}>Trocar</button>
+          </CardActions>
+        </>
+      )}
     </Card>
   );
 }

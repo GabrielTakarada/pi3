@@ -3,7 +3,7 @@ import * as C from "./styles";
 import instagram from "../../assets/instagram.png";
 import facebook from "../../assets/facebook.png";
 import whats from "../../assets/whats.png";
-import Logo from "../../assets/Logo.png";
+import Logo from "../../assets/logos.png";
 import Maps from "../../assets/Maps.png";
 
 const Footer = () => {
@@ -24,7 +24,7 @@ const Footer = () => {
           E-mail Addresses:
         </p>
       </div>
-      <div style={{ width: "20%", textAlign: "center" }}>
+      <div style={{ width: "16%", textAlign: "center", marginTop: "1.9%" }}>
         <h3
           style={{
             display: "flex",
@@ -45,7 +45,7 @@ const Footer = () => {
             fontWeight: "200",
           }}
         >
-          gabrieltakarada@gmail.com
+          pauliane.silveira@gmail.com
         </h3>
         <h3
           style={{
@@ -56,7 +56,7 @@ const Footer = () => {
             fontWeight: "200",
           }}
         >
-          gabrieltakarada@gmail.com
+          marcos.viniciushespanholo@gmail.com
         </h3>
       </div>
       <div style={{ width: "33%", alignItems: "center" }}>
@@ -101,7 +101,7 @@ const Footer = () => {
             alignItems: "end",
             width: "58%",
             marginTop: "3%",
-            marginLeft: "33%",
+            marginLeft: "25%",
           }}
         />
       </div>

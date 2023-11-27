@@ -8,8 +8,7 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/Logo.png";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import LOGO from "../../assets/logos.png";
 import { keyframes } from "@mui/system";
 
 const pulse = keyframes`
@@ -81,9 +80,12 @@ export default function Navbar() {
     <Box>
       <BlackBackgroundAppBar position="static">
         <Toolbar>
-          <img src={Logo} alt="Logo" style={{ maxWidth: "195px" }}></img>
-
-          <Box sx={{ flexGrow: 0.465 }} />
+          <img
+            src={LOGO}
+            alt="Logo"
+            style={{ maxWidth: "220px", marginLeft: "2%" }}
+          ></img>
+          <Box sx={{ flexGrow: 0.36}} />
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -93,16 +95,9 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <Box sx={{ flexGrow: 0.53 }} />
+          <Box sx={{ flexGrow: 0.59}} />
           <IconButton>
-            <Link to="/card">
-              <AddCircleOutlineIcon
-                style={{ color: "white" }}
-              ></AddCircleOutlineIcon>
-            </Link>
-          </IconButton>
-          <IconButton>
-            <Link to="/signin">
+            <Link to="/login">
               <ExitToAppIcon style={{ color: "white" }}></ExitToAppIcon>
             </Link>
           </IconButton>

@@ -10,66 +10,39 @@ const Main = () => {
     <div style={{ backgroundColor: "#F2DCC2" }}>
       <>
         <Navbar />
-        <div className="content-container" style={{ marginBottom: "4%" }}>
+        <div className="content-container">
           <Container maxWhidth="false">
             <Grid container spacing={6} marginTop="2px">
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <MediaCard />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <MediaCard />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <MediaCard />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <MediaCard />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <MediaCard />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <MediaCard />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <MediaCard />
               </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
-                <MediaCard />
-              </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <MediaCard />
               </Grid>
             </Grid>
           </Container>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
         <Footer />
       </>
     </div>
