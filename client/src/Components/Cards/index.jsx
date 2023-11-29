@@ -196,7 +196,7 @@ export default function MediaCard() {
                   gutterBottom
                   variant="h5"
                   component="div"
-                  style={{ marginRight: "7%" }}
+                  style={{ textAlign: "center" }}
                 >
                   {title}
                 </Typography>
