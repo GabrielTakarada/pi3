@@ -70,21 +70,27 @@ const Footer = () => {
           <p>Copyright © 2023 Escambo</p>
         </div>
         <div style={{ width: "100%" }}>
-          <img
-            src={instagram}
-            alt="img1"
-            style={{ width: "20px", height: "20px", marginRight: "8%" }}
-          />
-          <img
-            src={facebook}
-            alt="img1"
-            style={{ width: "20px", height: "20px" }}
-          />
-          <img
-            src={whats}
-            alt="img1"
-            style={{ width: "20px", height: "20px", marginLeft: "8%" }}
-          />
+          <a href="https://www.instagram.com/ecambo1/">
+            <img
+              src={instagram}
+              alt="img1"
+              style={{ width: "20px", height: "20px", marginRight: "8%" }}
+            />
+          </a>
+          <a href="https://www.facebook.com/escambo.2023/">
+            <img
+              src={facebook}
+              alt="img1"
+              style={{ width: "20px", height: "20px" }}
+            />
+          </a>
+          <a href="https://web.whatsapp.com/">
+            <img
+              src={whats}
+              alt="img1"
+              style={{ width: "20px", height: "20px", marginLeft: "8%" }}
+            />
+          </a>
         </div>
       </div>
       <div

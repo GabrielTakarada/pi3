@@ -12,7 +12,91 @@ const Main = () => {
         <Navbar />
         <div className="content-container">
           <Container maxWhidth="false">
-            <Grid container spacing={6} marginTop="2px">
+            <Grid container spacing={8} marginTop="2px">
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
+              <Grid item xs={6}>
+                <MediaCard />
+              </Grid>
               <Grid item xs={6}>
                 <MediaCard />
               </Grid>

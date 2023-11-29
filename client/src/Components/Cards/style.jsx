@@ -1,8 +1,6 @@
 export const cardStyle = {
-  minWidth: 499,
-  maxWidth: 500,
-  minHeight: 205,
-  maxHeight: 410,
+  Width: 600,
+  minHeight: 475,
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "colum",
@@ -15,10 +13,11 @@ export const cardStyle = {
 };
 
 export const imageStyle = {
-  width: "40%",
-  height: "40%",
-  marginTop: "15px",
+  maxWidth: "200px",
+  maxHeight: "200px",
+  marginTop: "10px",
+  marginBottom: "15px",
   display: "flex",
   textAling: "center",
-  marginLeft: "30%",
+  marginLeft: "5%",
 };

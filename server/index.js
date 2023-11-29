@@ -1,6 +1,7 @@
 require("dotenv").config();
 // pi3/server/index.js
 const express = require("express");
+const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 const app = express();
@@ -11,6 +12,8 @@ const authRoutes = require("./routes/auth");
 
 // database connection
 connection();
+
+app.use(bodyParser.json());
 
 // middlewares
 app.use(express.json());
@@ -39,6 +42,16 @@ app.post("/api/upload", upload.single("image"), (req, res) => {
 
   const imagePath = path.join(__dirname, "uploads", req.file.filename);
   return res.status(200).json({ imagePath });
+});
+
+app.post("/updateCardInfo", (req, res) => {
+  const { title, description } = req.body;
+
+  // Lógica para salvar as informações no banco de dados ou realizar qualquer outra ação necessária
+
+  res
+    .status(200)
+    .json({ message: "Informações do card atualizadas com sucesso." });
 });
 
 //routes

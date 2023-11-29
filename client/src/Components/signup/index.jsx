@@ -10,6 +10,9 @@ const Signup = () => {
     email: "",
     password: "",
   });
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -19,6 +22,17 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (data.password !== confirmPassword) {
+      setError("As senhas não coincidem");
+      return;
+    }
+
+    if (data.email !== confirmEmail) {
+      setError("Os emails não coincidem");
+      return;
+    }
+
     try {
       const url = "http://localhost:4000/api/users";
       const { data: res } = await axios.post(url, data);
@@ -79,6 +93,15 @@ const Signup = () => {
               className={styles.input}
             />
             <input
+              type="email"
+              placeholder="Confirm Email"
+              name="confirmEmail"
+              onChange={(e) => setConfirmEmail(e.target.value)}
+              value={confirmEmail}
+              required
+              className={styles.input}
+            />
+            <input
               type="password"
               placeholder="Password"
               name="password"
@@ -87,6 +110,16 @@ const Signup = () => {
               required
               className={styles.input}
             />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="confirmPassword"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={confirmPassword}
+              required
+              className={styles.input}
+            />
+
             {error && <div className={styles.error_msg}>{error}</div>}
             <button type="submit" className={styles.green_btn}>
               Sign Up

@@ -85,7 +85,7 @@ export default function Navbar() {
             alt="Logo"
             style={{ maxWidth: "220px", marginLeft: "2%" }}
           ></img>
-          <Box sx={{ flexGrow: 0.36}} />
+          <Box sx={{ flexGrow: 0.39 }} />
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -95,7 +95,7 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <Box sx={{ flexGrow: 0.59}} />
+          <Box sx={{ flexGrow: 0.59 }} />
           <IconButton>
             <Link to="/login">
               <ExitToAppIcon style={{ color: "white" }}></ExitToAppIcon>
